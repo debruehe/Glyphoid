@@ -12,6 +12,7 @@ struct GlyphCellView: View {
     let onFavoriteToggle: () -> Void
 
     @State private var isHovered = false
+    @State private var lastTapDate: Date = .distantPast
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -50,8 +51,16 @@ struct GlyphCellView: View {
             }
         }
         .onHover { isHovered = $0 }
-        .onTapGesture(count: 2) { if !isUnavailable { onDoubleTap() } }
-        .onTapGesture(count: 1) { if !isUnavailable { onTap() } }
+        .onTapGesture {
+            guard !isUnavailable else { return }
+            let now = Date()
+            if now.timeIntervalSince(lastTapDate) < 0.35 {
+                onDoubleTap()
+            } else {
+                onTap()
+            }
+            lastTapDate = now
+        }
         .help(isUnavailable
               ? "\(glyph.germanName) – nicht in dieser Schrift"
               : "\(glyph.germanName) · \(glyph.unicodeLabel)")

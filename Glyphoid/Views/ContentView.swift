@@ -49,6 +49,17 @@ struct ContentView: View {
                         if let g = state.selectedGlyph { state.insertGlyph(g) }
                         return .handled
                     }
+                    // Cmd+C / Cmd+Shift+C — handled here so they work when grid is focused
+                    // and don't conflict with the system Edit>Copy when a text field is focused.
+                    .onKeyPress("c", phases: .down) { press in
+                        guard let g = state.selectedGlyph else { return .ignored }
+                        if press.modifiers.contains(.command) && press.modifiers.contains(.shift) {
+                            state.copyTextSVG(for: g); return .handled
+                        } else if press.modifiers.contains(.command) {
+                            state.copyVectorSVG(for: g); return .handled
+                        }
+                        return .ignored
+                    }
 
                 GlyphStatusBarView()
             }
@@ -62,6 +73,7 @@ struct ContentView: View {
                     state.persistState()
                 }) {
                     Image(systemName: state.windowStateStore.isPinned ? "pin.fill" : "pin")
+                        .foregroundColor(state.windowStateStore.isPinned ? .accentColor : .primary)
                         .help(state.windowStateStore.isPinned ? "Fenster lösen" : "Fenster anheften")
                 }
             }
@@ -73,18 +85,5 @@ struct ContentView: View {
             AboutView()
         }
         .animation(.easeInOut(duration: 0.15), value: state.toastMessage)
-        // Keyboard shortcuts for SVG copy — only active when glyph is selected
-        .overlay(
-            Group {
-                if let glyph = state.selectedGlyph {
-                    Button("") { state.copyVectorSVG(for: glyph) }
-                        .keyboardShortcut("c", modifiers: .command)
-                        .opacity(0)
-                    Button("") { state.copyTextSVG(for: glyph) }
-                        .keyboardShortcut("c", modifiers: [.command, .shift])
-                        .opacity(0)
-                }
-            }
-        )
     }
 }

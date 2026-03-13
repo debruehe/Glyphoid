@@ -18,12 +18,12 @@ struct GlyphStatusBarView: View {
 
                 Spacer()
 
-                HStack(spacing: 8) {
+                HStack(spacing: 12) {
                     shortcutHint("⌘C", label: "Vektor-SVG")
                     shortcutHint("⌘⇧C", label: "Text-SVG")
                     shortcutHint("↩︎↩︎", label: "Einfügen")
                 }
-                .padding(.trailing, 10)
+                .padding(.trailing, 12)
             } else {
                 Text("Glyphe auswählen…")
                     .font(.system(size: 11))
@@ -44,19 +44,23 @@ struct GlyphStatusBarView: View {
                     .transition(.opacity.combined(with: .move(edge: .trailing)))
             }
         }
-        .frame(height: 36)
+        .frame(height: 44)
         .background(Color(.windowBackgroundColor).opacity(0.8))
         .overlay(Divider(), alignment: .top)
     }
 
     private func shortcutHint(_ keys: String, label: String) -> some View {
-        HStack(spacing: 3) {
+        HStack(spacing: 5) {
             Text(keys)
-                .font(.system(size: 9, design: .monospaced))
+                .font(.system(size: 11, weight: .medium, design: .monospaced))
                 .foregroundColor(.secondary)
+                .padding(.horizontal, 5)
+                .padding(.vertical, 2)
+                .background(Color(.controlBackgroundColor))
+                .clipShape(RoundedRectangle(cornerRadius: 4))
             Text(label)
-                .font(.system(size: 10))
-                .foregroundColor(.secondary.opacity(0.7))
+                .font(.system(size: 11))
+                .foregroundColor(.secondary.opacity(0.8))
         }
     }
 }

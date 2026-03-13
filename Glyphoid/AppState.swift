@@ -92,6 +92,12 @@ final class AppState: ObservableObject {
             .sink { [weak self] pinned in self?.windowManager.isPinned = pinned }
             .store(in: &cancellables)
 
+        // Forward all windowStateStore changes (incl. cellSize) to our own objectWillChange
+        // so views that read windowStateStore properties re-render correctly.
+        windowStateStore.objectWillChange
+            .sink { [weak self] _ in self?.objectWillChange.send() }
+            .store(in: &cancellables)
+
         reloadGlyphs()
     }
 

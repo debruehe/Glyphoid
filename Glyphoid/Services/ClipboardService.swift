@@ -22,12 +22,20 @@ final class ClipboardService {
         case copiedOnly(reason: String)
     }
 
+    /// True if the accessibility permission dialog has been shown this session.
+    private(set) var hasShownPermissionDialog: Bool = false
+
+    /// Marks that the permission dialog has been shown this session.
+    func markPermissionDialogShown() {
+        hasShownPermissionDialog = true
+    }
+
     /// Puts `character` in the clipboard then simulates Cmd+V in the target app.
     /// - Parameter targetApp: the app to paste into (nil = currently frontmost).
     /// - Returns: `.inserted` on success, `.copiedOnly` with reason on failure.
     @discardableResult
     func insertCharacter(_ character: String,
-                         into targetApp: NSRunningApplication?) -> InsertResult {
+                         into targetApp: NSRunningApplication?) async -> InsertResult {
         // 1. Write plain text to clipboard
         writeToClipboard(character, type: .string)
 
@@ -37,11 +45,10 @@ final class ClipboardService {
             return .copiedOnly(reason: "Keine Bedienungshilfen-Berechtigung")
         }
 
-        // 3. Simulate Cmd+V in target app (or frontmost app if no target)
+        // 3. Activate target app and wait for it to come to foreground
         if let app = targetApp {
             app.activate(options: .activateIgnoringOtherApps)
-            // Small delay for app to come to foreground
-            Thread.sleep(forTimeInterval: 0.1)
+            try? await Task.sleep(for: .milliseconds(100))
         }
 
         guard let source = CGEventSource(stateID: .hidSystemState) else {

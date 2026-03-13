@@ -7,8 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1185A34234A4D812B869334A /* GlyphNameServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228E2CDB3942F0DA2B1F7030 /* GlyphNameServiceTests.swift */; };
+		18CA79D07AEBB7C291ABCC5B /* WindowStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCB0C0CE4C64C63FFA4C92 /* WindowStateStore.swift */; };
+		7A84B306288F0165AB38BCDC /* FavoritesStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF1BC79BB5965D50F57244 /* FavoritesStoreTests.swift */; };
 		80BD762F8733533E52EBDBC5 /* GlyphoidTestsPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */; };
+		841EADE893924AEB1D251BE4 /* FavoritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA246215A4D3F25789AC59D /* FavoritesStore.swift */; };
+		A27FFDD567F2AF3FE5039BC3 /* GlyphEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA771AD934E8B9F6BFF84003 /* GlyphEntry.swift */; };
+		A2B2BF063C193D89B7FCD7F5 /* FontFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9726B3CA687B4886A9DBF /* FontFamily.swift */; };
+		A4B441DF733FD1677035BE09 /* glyph-categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 01D7B2FA61FE5D54EF53458B /* glyph-categories.json */; };
 		AB1E8358A826AFBFC14EE731 /* GlyphoidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB6FAA2C2E7D471C1252FE7 /* GlyphoidApp.swift */; };
+		AB368A9C9B57880D71AFB69E /* GlyphCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220814E7F8D9C4F04FE352A /* GlyphCategory.swift */; };
+		C4F369A5ED6982121A69075F /* cldr-de-names.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6117038F260273D4209C51 /* cldr-de-names.json */; };
+		D7C79A7A2F52C96FB138973A /* GlyphNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FCAD529C5E2AAC27617B1 /* GlyphNameService.swift */; };
+		EAE64B1A3F08A364B7BB53DD /* FontService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F50AD828E7F2A8DD96CE1 /* FontService.swift */; };
+		F67D15EC7FF4F7BF478D2972 /* FontServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52B6C31BF126EF816C3DE5 /* FontServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,17 +34,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01D7B2FA61FE5D54EF53458B /* glyph-categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "glyph-categories.json"; sourceTree = "<group>"; };
+		0C6117038F260273D4209C51 /* cldr-de-names.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "cldr-de-names.json"; sourceTree = "<group>"; };
+		0EC9726B3CA687B4886A9DBF /* FontFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamily.swift; sourceTree = "<group>"; };
 		15646D886C39F9BC7E3CD9AB /* Glyphoid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glyphoid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		228E2CDB3942F0DA2B1F7030 /* GlyphNameServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphNameServiceTests.swift; sourceTree = "<group>"; };
 		528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphoidTestsPlaceholder.swift; sourceTree = "<group>"; };
+		5DAF1BC79BB5965D50F57244 /* FavoritesStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStoreTests.swift; sourceTree = "<group>"; };
+		7B52B6C31BF126EF816C3DE5 /* FontServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontServiceTests.swift; sourceTree = "<group>"; };
+		9ADCB0C0CE4C64C63FFA4C92 /* WindowStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStateStore.swift; sourceTree = "<group>"; };
 		A4DE46152ED222DC5C03CAD5 /* GlyphoidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlyphoidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A640CAE527F490C04716D2D9 /* Glyphoid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Glyphoid.entitlements; sourceTree = "<group>"; };
+		AF7F50AD828E7F2A8DD96CE1 /* FontService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontService.swift; sourceTree = "<group>"; };
+		BA771AD934E8B9F6BFF84003 /* GlyphEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphEntry.swift; sourceTree = "<group>"; };
+		C220814E7F8D9C4F04FE352A /* GlyphCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphCategory.swift; sourceTree = "<group>"; };
 		DEB6FAA2C2E7D471C1252FE7 /* GlyphoidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphoidApp.swift; sourceTree = "<group>"; };
+		F91FCAD529C5E2AAC27617B1 /* GlyphNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphNameService.swift; sourceTree = "<group>"; };
+		FBA246215A4D3F25789AC59D /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		03AE568178D45EA642ECE956 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0EC9726B3CA687B4886A9DBF /* FontFamily.swift */,
+				C220814E7F8D9C4F04FE352A /* GlyphCategory.swift */,
+				BA771AD934E8B9F6BFF84003 /* GlyphEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1A9185950BBA511159D0ACF3 /* GlyphoidTests */ = {
 			isa = PBXGroup;
 			children = (
+				5DAF1BC79BB5965D50F57244 /* FavoritesStoreTests.swift */,
+				7B52B6C31BF126EF816C3DE5 /* FontServiceTests.swift */,
+				228E2CDB3942F0DA2B1F7030 /* GlyphNameServiceTests.swift */,
 				528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */,
 			);
 			path = GlyphoidTests;
@@ -43,6 +80,9 @@
 			children = (
 				A640CAE527F490C04716D2D9 /* Glyphoid.entitlements */,
 				DEB6FAA2C2E7D471C1252FE7 /* GlyphoidApp.swift */,
+				03AE568178D45EA642ECE956 /* Models */,
+				D373D5ACB00E1A863AEB82E5 /* Resources */,
+				B43391DFE1DF2AAFE1754AA8 /* Services */,
 				AC8B140AAA5DBB32B152B702 /* Views */,
 			);
 			path = Glyphoid;
@@ -73,6 +113,26 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B43391DFE1DF2AAFE1754AA8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FBA246215A4D3F25789AC59D /* FavoritesStore.swift */,
+				AF7F50AD828E7F2A8DD96CE1 /* FontService.swift */,
+				F91FCAD529C5E2AAC27617B1 /* GlyphNameService.swift */,
+				9ADCB0C0CE4C64C63FFA4C92 /* WindowStateStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D373D5ACB00E1A863AEB82E5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0C6117038F260273D4209C51 /* cldr-de-names.json */,
+				01D7B2FA61FE5D54EF53458B /* glyph-categories.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,6 +159,7 @@
 			buildConfigurationList = 52EA5FC7AC1FF970654685AB /* Build configuration list for PBXNativeTarget "Glyphoid" */;
 			buildPhases = (
 				AF8D5B22544EE3D00774686B /* Sources */,
+				33DE7C7E56C4DAD528762A27 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -142,12 +203,31 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		33DE7C7E56C4DAD528762A27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4F369A5ED6982121A69075F /* cldr-de-names.json in Resources */,
+				A4B441DF733FD1677035BE09 /* glyph-categories.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF8D5B22544EE3D00774686B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841EADE893924AEB1D251BE4 /* FavoritesStore.swift in Sources */,
+				A2B2BF063C193D89B7FCD7F5 /* FontFamily.swift in Sources */,
+				EAE64B1A3F08A364B7BB53DD /* FontService.swift in Sources */,
+				AB368A9C9B57880D71AFB69E /* GlyphCategory.swift in Sources */,
+				A27FFDD567F2AF3FE5039BC3 /* GlyphEntry.swift in Sources */,
+				D7C79A7A2F52C96FB138973A /* GlyphNameService.swift in Sources */,
 				AB1E8358A826AFBFC14EE731 /* GlyphoidApp.swift in Sources */,
+				18CA79D07AEBB7C291ABCC5B /* WindowStateStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +235,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A84B306288F0165AB38BCDC /* FavoritesStoreTests.swift in Sources */,
+				F67D15EC7FF4F7BF478D2972 /* FontServiceTests.swift in Sources */,
+				1185A34234A4D812B869334A /* GlyphNameServiceTests.swift in Sources */,
 				80BD762F8733533E52EBDBC5 /* GlyphoidTestsPlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +258,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -346,6 +430,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

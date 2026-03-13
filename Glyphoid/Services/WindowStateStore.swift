@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 import Combine
 
@@ -38,6 +39,30 @@ final class WindowStateStore: ObservableObject {
         defaults.set(cellSize,               forKey: Key.cellSize)
         defaults.set(selectedCategory.jsonKey, forKey: Key.category)
         defaults.set(isPinned,               forKey: Key.isPinned)
+    }
+
+    // Window frame persistence keys
+    private let frameXKey      = "windowFrameX"
+    private let frameYKey      = "windowFrameY"
+    private let frameWidthKey  = "windowFrameWidth"
+    private let frameHeightKey = "windowFrameHeight"
+
+    /// Save the current window frame to UserDefaults
+    func saveWindowFrame(_ frame: NSRect) {
+        defaults.set(Double(frame.origin.x), forKey: frameXKey)
+        defaults.set(Double(frame.origin.y), forKey: frameYKey)
+        defaults.set(Double(frame.width),    forKey: frameWidthKey)
+        defaults.set(Double(frame.height),   forKey: frameHeightKey)
+    }
+
+    /// Load the previously saved window frame, or nil if not set
+    func loadWindowFrame() -> NSRect? {
+        let w = defaults.double(forKey: frameWidthKey)
+        let h = defaults.double(forKey: frameHeightKey)
+        guard w >= 480, h >= 480 else { return nil }  // sanity check
+        let x = defaults.double(forKey: frameXKey)
+        let y = defaults.double(forKey: frameYKey)
+        return NSRect(x: x, y: y, width: w, height: h)
     }
 }
 

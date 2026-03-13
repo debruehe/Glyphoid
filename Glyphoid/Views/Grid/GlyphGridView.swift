@@ -10,9 +10,7 @@ struct GlyphGridView: View {
         let fontFamily = state.windowStateStore.selectedFontFamily
         let columns    = [GridItem(.adaptive(minimum: cellSize, maximum: cellSize), spacing: 4)]
 
-        GeometryReader { geo in
-          let _ = DispatchQueue.main.async { state.gridWidth = geo.size.width }
-          ScrollViewReader { proxy in
+        ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0, pinnedViews: []) {
 
@@ -71,8 +69,14 @@ struct GlyphGridView: View {
             .id(scrollID)
             .onChange(of: state.windowStateStore.selectedFontFamily) { _ in resetScroll(proxy: proxy) }
             .onChange(of: state.windowStateStore.selectedCategory)   { _ in resetScroll(proxy: proxy) }
-          }
         }
+        .background(
+            GeometryReader { geo in
+                Color.clear
+                    .onAppear { state.gridWidth = geo.size.width }
+                    .onChange(of: geo.size.width) { state.gridWidth = $0 }
+            }
+        )
     }
 
     private var favoritesSectionHeader: some View {

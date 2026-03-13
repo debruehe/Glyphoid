@@ -61,8 +61,8 @@ struct ContentView: View {
                     state.windowStateStore.isPinned = state.windowManager.isPinned
                     state.persistState()
                 }) {
-                    Image(systemName: state.windowManager.isPinned ? "pin.fill" : "pin")
-                        .help(state.windowManager.isPinned ? "Fenster lösen" : "Fenster anheften")
+                    Image(systemName: state.windowStateStore.isPinned ? "pin.fill" : "pin")
+                        .help(state.windowStateStore.isPinned ? "Fenster lösen" : "Fenster anheften")
                 }
             }
         }

@@ -218,8 +218,11 @@ final class AppState: ObservableObject {
                     germanName: nameService.germanName(for: cp),
                     category: nameService.category(for: cp)
                 )
-                favGlyphs.append(stub)
-                unavailableCPs.insert(cp)
+                // Unavailable favorites follow the same filter rules as available ones
+                if matches(glyph: stub, query: query, category: category) {
+                    favGlyphs.append(stub)
+                    unavailableCPs.insert(cp)
+                }
             }
         }
 

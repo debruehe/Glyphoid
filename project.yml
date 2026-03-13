@@ -34,7 +34,10 @@ targets:
     platform: macOS
     sources:
       - GlyphoidTests
+    resources:
+      - path: Glyphoid/Resources
     dependencies:
       - target: Glyphoid
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.glyphoid.tests
+      GENERATE_INFOPLIST_FILE: YES

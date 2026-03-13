@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80BD762F8733533E52EBDBC5 /* GlyphoidTestsPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */; };
+		AB1E8358A826AFBFC14EE731 /* GlyphoidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB6FAA2C2E7D471C1252FE7 /* GlyphoidApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7C146A0BD235119909905DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D0F708DBCC83CEE3A470E2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEA9F4A9CD2F1BBD99871DDB;
+			remoteInfo = Glyphoid;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15646D886C39F9BC7E3CD9AB /* Glyphoid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glyphoid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphoidTestsPlaceholder.swift; sourceTree = "<group>"; };
+		A4DE46152ED222DC5C03CAD5 /* GlyphoidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlyphoidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A640CAE527F490C04716D2D9 /* Glyphoid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Glyphoid.entitlements; sourceTree = "<group>"; };
+		DEB6FAA2C2E7D471C1252FE7 /* GlyphoidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphoidApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1A9185950BBA511159D0ACF3 /* GlyphoidTests */ = {
+			isa = PBXGroup;
+			children = (
+				528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */,
+			);
+			path = GlyphoidTests;
+			sourceTree = "<group>";
+		};
+		3510CBF776D3C846C4AC5D87 /* Glyphoid */ = {
+			isa = PBXGroup;
+			children = (
+				A640CAE527F490C04716D2D9 /* Glyphoid.entitlements */,
+				DEB6FAA2C2E7D471C1252FE7 /* GlyphoidApp.swift */,
+				AC8B140AAA5DBB32B152B702 /* Views */,
+			);
+			path = Glyphoid;
+			sourceTree = "<group>";
+		};
+		6BE7A8E9AF6CA89B10753402 = {
+			isa = PBXGroup;
+			children = (
+				3510CBF776D3C846C4AC5D87 /* Glyphoid */,
+				1A9185950BBA511159D0ACF3 /* GlyphoidTests */,
+				AA75C10FD1FC4D90EBBA313C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA75C10FD1FC4D90EBBA313C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15646D886C39F9BC7E3CD9AB /* Glyphoid.app */,
+				A4DE46152ED222DC5C03CAD5 /* GlyphoidTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC8B140AAA5DBB32B152B702 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		973F7AB45D02AA2D8C7B7CFE /* GlyphoidTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4C7C03AB51925B4C9047191 /* Build configuration list for PBXNativeTarget "GlyphoidTests" */;
+			buildPhases = (
+				CD9A0C3D5F23056F2FA75EBD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				480523DB5A6300796F902759 /* PBXTargetDependency */,
+			);
+			name = GlyphoidTests;
+			packageProductDependencies = (
+			);
+			productName = GlyphoidTests;
+			productReference = A4DE46152ED222DC5C03CAD5 /* GlyphoidTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EEA9F4A9CD2F1BBD99871DDB /* Glyphoid */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EA5FC7AC1FF970654685AB /* Build configuration list for PBXNativeTarget "Glyphoid" */;
+			buildPhases = (
+				AF8D5B22544EE3D00774686B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Glyphoid;
+			packageProductDependencies = (
+			);
+			productName = Glyphoid;
+			productReference = 15646D886C39F9BC7E3CD9AB /* Glyphoid.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D0F708DBCC83CEE3A470E2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 5F6D3396894DD85927706D9E /* Build configuration list for PBXProject "Glyphoid" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6BE7A8E9AF6CA89B10753402;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AA75C10FD1FC4D90EBBA313C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEA9F4A9CD2F1BBD99871DDB /* Glyphoid */,
+				973F7AB45D02AA2D8C7B7CFE /* GlyphoidTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF8D5B22544EE3D00774686B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB1E8358A826AFBFC14EE731 /* GlyphoidApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD9A0C3D5F23056F2FA75EBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80BD762F8733533E52EBDBC5 /* GlyphoidTestsPlaceholder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		480523DB5A6300796F902759 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEA9F4A9CD2F1BBD99871DDB /* Glyphoid */;
+			targetProxy = C7C146A0BD235119909905DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		73600549EFA07EADD9A1A85D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.glyphoid.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glyphoid.app/Contents/MacOS/Glyphoid";
+			};
+			name = Release;
+		};
+		9E715E52834AFEF1872D5B46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Glyphoid/Glyphoid.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glyphoid.app;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C4216A741CD35528615ED637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Glyphoid/Glyphoid.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glyphoid.app;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CA6329CF5BA5C7F192535486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		F36B029ED1B19EB16A1A2779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		F5D4B40CCCD8C85E4AD97173 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.glyphoid.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glyphoid.app/Contents/MacOS/Glyphoid";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52EA5FC7AC1FF970654685AB /* Build configuration list for PBXNativeTarget "Glyphoid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E715E52834AFEF1872D5B46 /* Debug */,
+				C4216A741CD35528615ED637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5F6D3396894DD85927706D9E /* Build configuration list for PBXProject "Glyphoid" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F36B029ED1B19EB16A1A2779 /* Debug */,
+				CA6329CF5BA5C7F192535486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E4C7C03AB51925B4C9047191 /* Build configuration list for PBXNativeTarget "GlyphoidTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D4B40CCCD8C85E4AD97173 /* Debug */,
+				73600549EFA07EADD9A1A85D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D0F708DBCC83CEE3A470E2E /* Project object */;
+}

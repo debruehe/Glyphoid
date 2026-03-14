@@ -18,6 +18,8 @@
 		7A84B306288F0165AB38BCDC /* FavoritesStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF1BC79BB5965D50F57244 /* FavoritesStoreTests.swift */; };
 		80BD762F8733533E52EBDBC5 /* GlyphoidTestsPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */; };
 		841EADE893924AEB1D251BE4 /* FavoritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA246215A4D3F25789AC59D /* FavoritesStore.swift */; };
+		CE5EA897C02A47398554477B /* RecentlyUsedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946D93522D4BF581D18568 /* RecentlyUsedStore.swift */; };
+		568644523E9F4413A80DEADE /* RecentlyUsedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA1E6E108F4B97BA3C7410 /* RecentlyUsedStoreTests.swift */; };
 		8E7763834579337F5EF8F40F /* AccessibilityPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6332538D569815939694 /* AccessibilityPermissionView.swift */; };
 		9A1F515D009D5D7EFC38252E /* GlyphStatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E0C2686B7C58988AE7F48 /* GlyphStatusBarView.swift */; };
 		A0F2AB12C36BBAE1D3683F8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F78126C65378C8CC1ECD9 /* ContentView.swift */; };
@@ -85,6 +87,8 @@
 		F3A1079E66A1D86608DD7C64 /* SVGExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGExporter.swift; sourceTree = "<group>"; };
 		F91FCAD529C5E2AAC27617B1 /* GlyphNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphNameService.swift; sourceTree = "<group>"; };
 		FBA246215A4D3F25789AC59D /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
+		49946D93522D4BF581D18568 /* RecentlyUsedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyUsedStore.swift; sourceTree = "<group>"; };
+		CDAA1E6E108F4B97BA3C7410 /* RecentlyUsedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyUsedStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -115,6 +119,7 @@
 			children = (
 				5DAF1BC79BB5965D50F57244 /* FavoritesStoreTests.swift */,
 				7B52B6C31BF126EF816C3DE5 /* FontServiceTests.swift */,
+				CDAA1E6E108F4B97BA3C7410 /* RecentlyUsedStoreTests.swift */,
 				228E2CDB3942F0DA2B1F7030 /* GlyphNameServiceTests.swift */,
 				528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */,
 				865142237C85F9A079E594B2 /* SVGExporterTests.swift */,
@@ -184,6 +189,7 @@
 				B82C149F5278490D0E47B783 /* ClipboardService.swift */,
 				FBA246215A4D3F25789AC59D /* FavoritesStore.swift */,
 				AF7F50AD828E7F2A8DD96CE1 /* FontService.swift */,
+				49946D93522D4BF581D18568 /* RecentlyUsedStore.swift */,
 				F91FCAD529C5E2AAC27617B1 /* GlyphNameService.swift */,
 				F3A1079E66A1D86608DD7C64 /* SVGExporter.swift */,
 				9ADCB0C0CE4C64C63FFA4C92 /* WindowStateStore.swift */,
@@ -301,6 +307,7 @@
 				6A51C0F27E0AC9D9F211BA62 /* ClipboardService.swift in Sources */,
 				A0F2AB12C36BBAE1D3683F8F /* ContentView.swift in Sources */,
 				841EADE893924AEB1D251BE4 /* FavoritesStore.swift in Sources */,
+				CE5EA897C02A47398554477B /* RecentlyUsedStore.swift in Sources */,
 				A2B2BF063C193D89B7FCD7F5 /* FontFamily.swift in Sources */,
 				1268B2120FB98007E9471212 /* FontPickerView.swift in Sources */,
 				EAE64B1A3F08A364B7BB53DD /* FontService.swift in Sources */,
@@ -326,6 +333,7 @@
 			files = (
 				7A84B306288F0165AB38BCDC /* FavoritesStoreTests.swift in Sources */,
 				F67D15EC7FF4F7BF478D2972 /* FontServiceTests.swift in Sources */,
+				568644523E9F4413A80DEADE /* RecentlyUsedStoreTests.swift in Sources */,
 				1185A34234A4D812B869334A /* GlyphNameServiceTests.swift in Sources */,
 				80BD762F8733533E52EBDBC5 /* GlyphoidTestsPlaceholder.swift in Sources */,
 				DFFAFFA73E32F4CD6E27B8DA /* SVGExporterTests.swift in Sources */,

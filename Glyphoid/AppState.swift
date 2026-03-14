@@ -179,7 +179,8 @@ final class AppState: ObservableObject {
     }
 
     func navigateGrid(direction: NavigationDirection) {
-        let allVisible = recentGlyphs + filteredGlyphs
+        let recentCPs = Set(recentGlyphs.map(\.codepoint))
+        let allVisible = recentGlyphs + filteredGlyphs.filter { !recentCPs.contains($0.codepoint) }
         guard !allVisible.isEmpty else { return }
 
         if let current = selectedGlyph,

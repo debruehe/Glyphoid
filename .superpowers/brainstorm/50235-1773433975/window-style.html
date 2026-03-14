@@ -1,0 +1,73 @@
+<h2>Wie soll sich das Fenster verhalten?</h2>
+<p class="subtitle">Glyphoid wird neben anderen Apps verwendet — das Fensterverhalten beeinflusst den gesamten Workflow.</p>
+
+<div class="cards">
+  <div class="card" data-choice="floating" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 20px; background: #1a1a2e; border-radius: 8px; font-family: -apple-system; position: relative;">
+      <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block"></span>
+        <span style="color:#888;font-size:11px;margin-left:4px">Glyphoid — Immer im Vordergrund</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px;">
+        <div style="aspect-ratio:1;background:#2a2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">A</div>
+        <div style="aspect-ratio:1;background:#2a2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">B</div>
+        <div style="aspect-ratio:1;background:#2a2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">→</div>
+        <div style="aspect-ratio:1;background:#2a2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">©</div>
+        <div style="aspect-ratio:1;background:#2a2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">♥</div>
+      </div>
+      <div style="position:absolute;bottom:10px;right:10px;background:#3a3a5e;border-radius:4px;padding:2px 6px;color:#aaa;font-size:10px">⬆ Immer sichtbar</div>
+    </div>
+    <div class="card-body">
+      <h3>A — Floating Panel</h3>
+      <p>Das Fenster bleibt immer über anderen Apps sichtbar — kein Wechsel nötig, um auf Glyphen zuzugreifen. Kompakt, schnell, immer griffbereit.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="regular" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 20px; background: #1a2e1a; border-radius: 8px; font-family: -apple-system; position: relative;">
+      <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block"></span>
+        <span style="color:#888;font-size:11px;margin-left:4px">Glyphoid — normales Fenster</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px;">
+        <div style="aspect-ratio:1;background:#2a4e2a;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">A</div>
+        <div style="aspect-ratio:1;background:#2a4e2a;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">B</div>
+        <div style="aspect-ratio:1;background:#2a4e2a;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">→</div>
+        <div style="aspect-ratio:1;background:#2a4e2a;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">©</div>
+        <div style="aspect-ratio:1;background:#2a4e2a;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">♥</div>
+      </div>
+      <div style="position:absolute;bottom:10px;right:10px;background:#3a5e3a;border-radius:4px;padding:2px 6px;color:#aaa;font-size:10px">↔ Normales Fenster</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Normales Fenster</h3>
+      <p>Glyphoid verhält sich wie eine normale App. Man wechselt manuell dorthin, wählt eine Glyphe, und switcht zurück in die Ziel-App. Mehr Platz für die Übersicht.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="both" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 20px; background: #2e1a2e; border-radius: 8px; font-family: -apple-system; position: relative;">
+      <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block"></span>
+        <span style="color:#888;font-size:11px;margin-left:4px">Glyphoid — umschaltbar</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px;">
+        <div style="aspect-ratio:1;background:#4e2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">A</div>
+        <div style="aspect-ratio:1;background:#4e2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">B</div>
+        <div style="aspect-ratio:1;background:#4e2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">→</div>
+        <div style="aspect-ratio:1;background:#4e2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">©</div>
+        <div style="aspect-ratio:1;background:#4e2a4e;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#ddd;font-size:18px">♥</div>
+      </div>
+      <div style="position:absolute;bottom:10px;right:10px;background:#5e3a5e;border-radius:4px;padding:2px 6px;color:#aaa;font-size:10px">⚙ Pin-Taste zum Umschalten</div>
+    </div>
+    <div class="card-body">
+      <h3>C — Beides (umschaltbar)</h3>
+      <p>Ein Pin-Knopf im Fenster lässt wählen: immer sichtbar oder normales Verhalten. Flexibel, aber leicht komplexer.</p>
+    </div>
+  </div>
+</div>

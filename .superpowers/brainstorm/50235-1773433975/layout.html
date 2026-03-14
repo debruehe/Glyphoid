@@ -1,0 +1,111 @@
+<h2>Wie soll das Hauptfenster aufgebaut sein?</h2>
+<p class="subtitle">Steuerung (Font, Größe, Suche) und das Glyphen-Raster — wo gehört was hin?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="top-bar" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#171b22;padding:12px;border-radius:6px;font-family:-apple-system;min-height:160px;">
+      <!-- Toolbar oben, Grid füllt den Rest -->
+      <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px;background:#1f2530;border-radius:5px;padding:6px 8px;">
+        <span style="color:#5a6170;font-size:9px">⌕</span>
+        <span style="color:#3a4050;font-size:9px;flex:1">Suchen…</span>
+        <span style="color:#dde1e7;font-size:9px;background:#283040;padding:2px 6px;border-radius:3px">Helvetica Neue</span>
+        <span style="color:#5a6170;font-size:9px;background:#1f2530;padding:2px 4px;border-radius:3px">⊟ — ⊞</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;">
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">A</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">B</div>
+        <div style="aspect-ratio:1;background:#283040;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px;outline:1px solid #4a9eff">→</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">©</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">♥</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">€</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">æ</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">ß</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">∑</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">π</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">≈</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">…</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">«</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:14px">»</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Toolbar oben</h3>
+      <p>Schmale Kontrollleiste ganz oben, das Raster füllt den gesamten restlichen Bereich. Maximale Fläche für Glyphen. Kompakt.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="sidebar" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#171b22;padding:12px;border-radius:6px;font-family:-apple-system;min-height:160px;display:flex;gap:8px;">
+      <!-- Sidebar links, Grid rechts -->
+      <div style="width:70px;background:#1a1e28;border-radius:5px;padding:8px;display:flex;flex-direction:column;gap:6px;">
+        <span style="color:#dde1e7;font-size:8px;font-weight:600">SCHRIFT</span>
+        <span style="color:#5a6170;font-size:7px;background:#1f2530;padding:3px 4px;border-radius:3px">Helvetica</span>
+        <span style="color:#5a6170;font-size:7px">Regular</span>
+        <div style="height:1px;background:#252a35;margin:2px 0"></div>
+        <span style="color:#dde1e7;font-size:8px;font-weight:600">GRÖẞE</span>
+        <div style="height:3px;background:#283040;border-radius:2px"><div style="width:60%;height:100%;background:#4a9eff;border-radius:2px"></div></div>
+        <div style="height:1px;background:#252a35;margin:2px 0"></div>
+        <span style="color:#dde1e7;font-size:8px;font-weight:600">FILTER</span>
+        <span style="color:#5a6170;font-size:7px">Pfeile</span>
+        <span style="color:#5a6170;font-size:7px">Währung</span>
+        <span style="color:#5a6170;font-size:7px">Buchstaben</span>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+        <div style="background:#1f2530;border-radius:4px;padding:4px 6px;display:flex;align-items:center;gap:4px;">
+          <span style="color:#5a6170;font-size:9px">⌕</span>
+          <span style="color:#3a4050;font-size:8px">Suchen…</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:3px;flex:1;">
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">A</div>
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">B</div>
+          <div style="aspect-ratio:1;background:#283040;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px;outline:1px solid #4a9eff">→</div>
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">©</div>
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">♥</div>
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">€</div>
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">æ</div>
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">ß</div>
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">∑</div>
+          <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:13px">π</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Sidebar links</h3>
+      <p>Alle Bedienelemente in einer schmalen Leiste links — Schrift, Größe, Kategoriefilter. Gut wenn man oft zwischen Kategorien wechselt.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="bottom-bar" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#171b22;padding:12px;border-radius:6px;font-family:-apple-system;min-height:160px;display:flex;flex-direction:column;gap:6px;">
+      <!-- Grid oben, Steuerung unten -->
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;flex:1;">
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">A</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">B</div>
+        <div style="aspect-ratio:1;background:#283040;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px;outline:1px solid #4a9eff">→</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">©</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">♥</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">€</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">æ</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">ß</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">∑</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">π</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">≈</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">…</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">«</div>
+        <div style="aspect-ratio:1;background:#1f2530;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#dde1e7;font-size:15px">»</div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;background:#1f2530;border-radius:5px;padding:5px 8px;">
+        <span style="color:#dde1e7;font-size:8px;background:#283040;padding:2px 5px;border-radius:3px">Helvetica Neue</span>
+        <span style="color:#5a6170;font-size:8px">Regular</span>
+        <div style="flex:1;height:3px;background:#283040;border-radius:2px;margin:0 4px"><div style="width:40%;height:100%;background:#4a9eff;border-radius:2px"></div></div>
+        <span style="color:#5a6170;font-size:9px">⌕</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Steuerung unten</h3>
+      <p>Das Raster nimmt fast das gesamte Fenster ein. Schrift, Gewicht, Größenregler und Suche in einer schmalen Leiste ganz unten. Maximaler Fokus auf Glyphen.</p>
+    </div>
+  </div>
+
+</div>

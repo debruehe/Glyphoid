@@ -36,7 +36,7 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .focusable()
                     .focused($isGridFocused)
-                    .onTapGesture { isGridFocused = true }
+                    .onChange(of: state.selectedGlyph) { _ in isGridFocused = true }
                     .onKeyPress(.leftArrow)  { state.navigateGrid(direction: .left);  return .handled }
                     .onKeyPress(.rightArrow) { state.navigateGrid(direction: .right); return .handled }
                     .onKeyPress(.upArrow)    { state.navigateGrid(direction: .up);    return .handled }

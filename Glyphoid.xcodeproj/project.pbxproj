@@ -15,9 +15,7 @@
 		5BDEC26D59BAF3C44EA447B1 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C266A2F141766332C0D1353 /* WindowManager.swift */; };
 		5CDB25F27937C5BFAA2CEA68 /* GlyphCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA75EEF18717CCFCDED87B /* GlyphCellView.swift */; };
 		6A51C0F27E0AC9D9F211BA62 /* ClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C149F5278490D0E47B783 /* ClipboardService.swift */; };
-		7A84B306288F0165AB38BCDC /* FavoritesStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF1BC79BB5965D50F57244 /* FavoritesStoreTests.swift */; };
 		80BD762F8733533E52EBDBC5 /* GlyphoidTestsPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */; };
-		841EADE893924AEB1D251BE4 /* FavoritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA246215A4D3F25789AC59D /* FavoritesStore.swift */; };
 		CE5EA897C02A47398554477B /* RecentlyUsedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946D93522D4BF581D18568 /* RecentlyUsedStore.swift */; };
 		568644523E9F4413A80DEADE /* RecentlyUsedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA1E6E108F4B97BA3C7410 /* RecentlyUsedStoreTests.swift */; };
 		8E7763834579337F5EF8F40F /* AccessibilityPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99B6332538D569815939694 /* AccessibilityPermissionView.swift */; };
@@ -64,7 +62,6 @@
 		47E9E566F3FE742FC2802CE8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		528FA674912E49DB0B886716 /* GlyphoidTestsPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphoidTestsPlaceholder.swift; sourceTree = "<group>"; };
 		53AA36C44340B7133DC8D5FE /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
-		5DAF1BC79BB5965D50F57244 /* FavoritesStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStoreTests.swift; sourceTree = "<group>"; };
 		77E963CB08E3983E1B7223FE /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		7B52B6C31BF126EF816C3DE5 /* FontServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontServiceTests.swift; sourceTree = "<group>"; };
 		7C266A2F141766332C0D1353 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
@@ -86,7 +83,6 @@
 		E36B720CF8C9B32BB32D3D56 /* GlyphGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphGridView.swift; sourceTree = "<group>"; };
 		F3A1079E66A1D86608DD7C64 /* SVGExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGExporter.swift; sourceTree = "<group>"; };
 		F91FCAD529C5E2AAC27617B1 /* GlyphNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphNameService.swift; sourceTree = "<group>"; };
-		FBA246215A4D3F25789AC59D /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
 		49946D93522D4BF581D18568 /* RecentlyUsedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyUsedStore.swift; sourceTree = "<group>"; };
 		CDAA1E6E108F4B97BA3C7410 /* RecentlyUsedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyUsedStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,7 +113,6 @@
 		1A9185950BBA511159D0ACF3 /* GlyphoidTests */ = {
 			isa = PBXGroup;
 			children = (
-				5DAF1BC79BB5965D50F57244 /* FavoritesStoreTests.swift */,
 				7B52B6C31BF126EF816C3DE5 /* FontServiceTests.swift */,
 				CDAA1E6E108F4B97BA3C7410 /* RecentlyUsedStoreTests.swift */,
 				228E2CDB3942F0DA2B1F7030 /* GlyphNameServiceTests.swift */,
@@ -187,7 +182,6 @@
 			children = (
 				0096E60F75C412DCCEF7CCB8 /* AppFocusTracker.swift */,
 				B82C149F5278490D0E47B783 /* ClipboardService.swift */,
-				FBA246215A4D3F25789AC59D /* FavoritesStore.swift */,
 				AF7F50AD828E7F2A8DD96CE1 /* FontService.swift */,
 				49946D93522D4BF581D18568 /* RecentlyUsedStore.swift */,
 				F91FCAD529C5E2AAC27617B1 /* GlyphNameService.swift */,
@@ -306,7 +300,6 @@
 				BB1DCDC2348B7DA985F1C61A /* CategoryFilterView.swift in Sources */,
 				6A51C0F27E0AC9D9F211BA62 /* ClipboardService.swift in Sources */,
 				A0F2AB12C36BBAE1D3683F8F /* ContentView.swift in Sources */,
-				841EADE893924AEB1D251BE4 /* FavoritesStore.swift in Sources */,
 				CE5EA897C02A47398554477B /* RecentlyUsedStore.swift in Sources */,
 				A2B2BF063C193D89B7FCD7F5 /* FontFamily.swift in Sources */,
 				1268B2120FB98007E9471212 /* FontPickerView.swift in Sources */,
@@ -331,7 +324,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A84B306288F0165AB38BCDC /* FavoritesStoreTests.swift in Sources */,
 				F67D15EC7FF4F7BF478D2972 /* FontServiceTests.swift in Sources */,
 				568644523E9F4413A80DEADE /* RecentlyUsedStoreTests.swift in Sources */,
 				1185A34234A4D812B869334A /* GlyphNameServiceTests.swift in Sources */,

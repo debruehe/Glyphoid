@@ -82,6 +82,20 @@ final class AppState: ObservableObject {
         }
         .store(in: &cancellables)
 
+        // When the font family or style changes, immediately invalidate the glyph
+        // list so favorites render as stubs rather than attempting to render
+        // old glyph characters with the new (not-yet-loaded) font.
+        // The debounced reloadGlyphs() call below will populate the real data.
+        Publishers.Merge(
+            windowStateStore.$selectedFontFamily.dropFirst().map { _ in () },
+            windowStateStore.$selectedStyle.dropFirst().map { _ in () }
+        )
+        .sink { [weak self] in
+            self?.allGlyphs = []
+            self?.applyFilters()
+        }
+        .store(in: &cancellables)
+
         // Wire favorites changes → re-apply filters
         favoritesStore.$favorites
             .sink { [weak self] _ in self?.applyFilters() }
@@ -166,6 +180,10 @@ final class AppState: ObservableObject {
 
     func toggleFavorite(_ glyph: GlyphEntry) {
         favoritesStore.toggle(glyph.codepoint)
+    }
+
+    func clearFavorites() {
+        favoritesStore.clearAll()
     }
 
     func navigateGrid(direction: NavigationDirection) {

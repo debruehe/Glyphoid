@@ -21,11 +21,21 @@ struct RecentGlyph: Codable, Identifiable, Hashable {
     let codepoint: UInt32
     let character: String
     let germanName: String
-    let category: GlyphCategory   // already Codable
+    let category: GlyphCategory
 }
 ```
 
-Snapshot captured at time of use. No runtime lookup needed. `id` is `codepoint`.
+Snapshot captured at time of use. No runtime lookup needed. `var id: UInt32 { codepoint }`.
+
+`GlyphCategory` is `RawRepresentable` with German display strings as raw values (`"Pfeile"` etc.), so synthesised `Codable` would encode the wrong value. `RecentGlyph` must provide a **custom `Codable` implementation** that encodes/decodes `category` via `jsonKey` (the English key already used in `glyph-categories.json`, e.g. `"arrows"`). The stored JSON format is:
+
+```json
+[
+  { "codepoint": 8594, "character": "→", "germanName": "nach rechts weisender Pfeil", "category": "arrows" }
+]
+```
+
+`ForEach` in the recents grid uses `\.id` via `Identifiable` (not an explicit `id:` keypath).
 
 ## Service Layer
 
@@ -48,7 +58,10 @@ Snapshot captured at time of use. No runtime lookup needed. `id` is `codepoint`.
   - Kept in sync via `recentlyUsedStore.$recents.sink` which converts `[RecentGlyph] → [GlyphEntry]`
 - Remove `filteredFavorites`, `unavailableFavoriteCPs`, `toggleFavorite(_:)`, `clearFavorites()`
 - Add `clearRecents()` delegating to `recentlyUsedStore.clearAll()`
-- Call `recentlyUsedStore.record(glyph)` at the start of `insertGlyph(_:)`, `copyVectorSVG(for:)`, `copyTextSVG(for:)`
+- Call `recentlyUsedStore.record(glyph)` **before** the accessibility-permission early-return in `insertGlyph(_:)` — the character is delivered to the user on both the insert and the clipboard-fallback paths, so recording happens unconditionally at the top of the method
+- Call `recentlyUsedStore.record(glyph)` at the start of `copyVectorSVG(for:)` — fires once regardless of whether the vector or text-SVG fallback branch executes
+- Call `recentlyUsedStore.record(glyph)` at the start of `copyTextSVG(for:)`
+- In `navigateGrid`, replace `filteredFavorites` with `recentGlyphs` in the `allVisible` pool: `let allVisible = recentGlyphs + filteredGlyphs`
 - Remove all favorites-related Combine subscriptions (including the immediate-clear subscription added in the previous fix attempt)
 - `applyFilters()` and `reloadGlyphs()` are unchanged — recents are independent of font/search/category filters
 
@@ -74,16 +87,11 @@ Recents are **not** filtered by search query or category — they are a persiste
 
 Recents cells render `glyph.character` with the currently selected font. If the font does not support the character, SwiftUI falls back to the system font automatically — no stub logic needed.
 
+The empty-state condition changes from `filteredGlyphs.isEmpty && filteredFavorites.isEmpty` to simply `filteredGlyphs.isEmpty` — recents are shown in their own section above and do not affect the empty state of the main grid.
+
 ## Persistence Format
 
-```json
-[
-  { "codepoint": 8594, "character": "→", "germanName": "nach rechts weisender Pfeil", "category": "arrows" },
-  ...
-]
-```
-
-Stored under `UserDefaults` key `"glyphoid.recentlyUsed"`.
+Stored under `UserDefaults` key `"glyphoid.recentlyUsed"` as JSON-encoded `[RecentGlyph]`. The `category` field uses `jsonKey` values (`"arrows"`, `"letters"`, etc.), not the German display strings.
 
 ## Files Changed
 

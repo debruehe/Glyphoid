@@ -3,8 +3,6 @@ import SwiftUI
 struct GlyphGridView: View {
     @EnvironmentObject var state: AppState
 
-    @State private var scrollID = UUID()
-
     var body: some View {
         let cellSize   = state.windowStateStore.cellSize
         let fontFamily = state.windowStateStore.selectedFontFamily
@@ -13,23 +11,20 @@ struct GlyphGridView: View {
         ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0, pinnedViews: []) {
+                    Color.clear.frame(height: 0).id("glyphScrollTop")
 
-                    if !state.filteredFavorites.isEmpty {
-                        favoritesSectionHeader
+                    if !state.recentGlyphs.isEmpty {
+                        recentsSectionHeader
 
                         LazyVGrid(columns: columns, spacing: 4) {
-                            ForEach(state.filteredFavorites) { glyph in
-                                let isUnavailable = state.unavailableFavoriteCPs.contains(glyph.codepoint)
+                            ForEach(state.recentGlyphs) { glyph in
                                 GlyphCellView(
                                     glyph: glyph,
                                     fontFamily: fontFamily,
                                     cellSize: cellSize,
                                     isSelected: state.selectedGlyph?.id == glyph.id,
-                                    isFavorite: !isUnavailable,
-                                    isUnavailable: isUnavailable,
                                     onTap: { state.selectGlyph(glyph) },
-                                    onDoubleTap: { Task { await state.insertGlyphAsync(glyph) } },
-                                    onFavoriteToggle: { state.toggleFavorite(glyph) }
+                                    onDoubleTap: { Task { await state.insertGlyphAsync(glyph) } }
                                 )
                             }
                         }
@@ -40,7 +35,7 @@ struct GlyphGridView: View {
                             .padding(.horizontal, 8)
                     }
 
-                    if state.filteredGlyphs.isEmpty && state.filteredFavorites.isEmpty {
+                    if state.filteredGlyphs.isEmpty {
                         emptyState
                     } else {
                         LazyVGrid(columns: columns, spacing: 4) {
@@ -50,11 +45,8 @@ struct GlyphGridView: View {
                                     fontFamily: fontFamily,
                                     cellSize: cellSize,
                                     isSelected: state.selectedGlyph?.id == glyph.id,
-                                    isFavorite: false,
-                                    isUnavailable: false,
                                     onTap: { state.selectGlyph(glyph) },
-                                    onDoubleTap: { state.insertGlyph(glyph) },
-                                    onFavoriteToggle: { state.toggleFavorite(glyph) }
+                                    onDoubleTap: { state.insertGlyph(glyph) }
                                 )
                             }
                         }
@@ -66,7 +58,6 @@ struct GlyphGridView: View {
                 }
                 .padding(.top, 8)
             }
-            .id(scrollID)
             .onChange(of: state.windowStateStore.selectedFontFamily) { _ in resetScroll(proxy: proxy) }
             .onChange(of: state.windowStateStore.selectedCategory)   { _ in resetScroll(proxy: proxy) }
         }
@@ -79,15 +70,21 @@ struct GlyphGridView: View {
         )
     }
 
-    private var favoritesSectionHeader: some View {
+    private var recentsSectionHeader: some View {
         HStack(spacing: 4) {
-            Image(systemName: "star.fill")
+            Image(systemName: "clock")
                 .font(.system(size: 10, weight: .medium))
                 .foregroundColor(.secondary)
-            Text("Favoriten")
+            Text("Zuletzt verwendet")
                 .font(.system(size: 10, weight: .medium))
                 .foregroundColor(.secondary)
             Spacer()
+            Button(action: { state.clearRecents() }) {
+                Text("Alle entfernen")
+                    .font(.system(size: 10))
+                    .foregroundColor(.secondary)
+            }
+            .buttonStyle(.plain)
         }
         .padding(.horizontal, 12)
         .padding(.top, 4)
@@ -108,6 +105,6 @@ struct GlyphGridView: View {
     }
 
     private func resetScroll(proxy: ScrollViewProxy) {
-        scrollID = UUID()
+        proxy.scrollTo("glyphScrollTop", anchor: .top)
     }
 }

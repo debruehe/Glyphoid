@@ -15,55 +15,57 @@ struct GlyphCellView: View {
     @State private var lastTapDate: Date = .distantPast
 
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            Text(isUnavailable ? "?" : glyph.character)
-                .font(.custom(
-                    isUnavailable ? ".AppleSystemUIFont" : fontFamily,
-                    size: cellSize * 0.6
-                ))
-                .foregroundColor(isUnavailable ? .secondary.opacity(0.4) : .primary)
-                .frame(width: cellSize, height: cellSize)
-                .background(cellBackground)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .strokeBorder(isSelected ? Color.accentColor : Color.clear,
-                                      lineWidth: 1.5)
-                )
-
-            if !isUnavailable && (isHovered || isFavorite) {
-                Button(action: onFavoriteToggle) {
-                    Image(systemName: isFavorite ? "star.fill" : "star")
-                        .font(.system(size: 9, weight: .medium))
-                        .foregroundColor(isFavorite ? .yellow : .secondary)
+        Text(isUnavailable ? "?" : glyph.character)
+            .font(.custom(
+                isUnavailable ? ".AppleSystemUIFont" : fontFamily,
+                size: cellSize * 0.6
+            ))
+            .foregroundColor(isUnavailable ? .secondary.opacity(0.4) : .primary)
+            .frame(width: cellSize, height: cellSize)
+            .background(cellBackground)
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .strokeBorder(isSelected ? Color.accentColor : Color.clear, lineWidth: 1.5)
+            )
+            // Star / unavailable icon in overlay — overlay has higher hit-test priority
+            // than the base view, so the star button reliably captures its own clicks
+            // without the cell's onTapGesture also firing.
+            .overlay(alignment: .topTrailing) {
+                if isUnavailable {
+                    Image(systemName: "slash.circle")
+                        .font(.system(size: 9))
+                        .foregroundColor(.secondary.opacity(0.6))
                         .padding(3)
+                        .allowsHitTesting(false)
+                } else {
+                    Button(action: onFavoriteToggle) {
+                        Image(systemName: isFavorite ? "star.fill" : "star")
+                            .font(.system(size: 9, weight: .medium))
+                            .foregroundColor(isFavorite ? .yellow : .secondary)
+                            .padding(3)
+                    }
+                    .buttonStyle(.plain)
+                    // Always in the hierarchy to avoid disappearing mid-click;
+                    // visibility and interactivity controlled via opacity + allowsHitTesting.
+                    .opacity(isHovered || isFavorite ? 1 : 0)
+                    .allowsHitTesting(isHovered || isFavorite)
                 }
-                .buttonStyle(.plain)
-                .offset(x: -1, y: 1)
             }
-
-            if isUnavailable {
-                Image(systemName: "slash.circle")
-                    .font(.system(size: 9))
-                    .foregroundColor(.secondary.opacity(0.6))
-                    .padding(2)
-                    .offset(x: -1, y: 1)
+            .onHover { isHovered = $0 }
+            .onTapGesture {
+                guard !isUnavailable else { return }
+                let now = Date()
+                if now.timeIntervalSince(lastTapDate) < 0.35 {
+                    onDoubleTap()
+                } else {
+                    onTap()
+                }
+                lastTapDate = now
             }
-        }
-        .onHover { isHovered = $0 }
-        .onTapGesture {
-            guard !isUnavailable else { return }
-            let now = Date()
-            if now.timeIntervalSince(lastTapDate) < 0.35 {
-                onDoubleTap()
-            } else {
-                onTap()
-            }
-            lastTapDate = now
-        }
-        .help(isUnavailable
-              ? "\(glyph.germanName) – nicht in dieser Schrift"
-              : "\(glyph.germanName) · \(glyph.unicodeLabel)")
+            .help(isUnavailable
+                  ? "\(glyph.germanName) – nicht in dieser Schrift"
+                  : "\(glyph.germanName) · \(glyph.unicodeLabel)")
     }
 
     private var cellBackground: Color {

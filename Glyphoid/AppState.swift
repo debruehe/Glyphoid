@@ -13,7 +13,7 @@ final class AppState: ObservableObject {
     let nameService: GlyphNameService
     let svgExporter: SVGExporter
     let clipboardService: ClipboardService
-    let favoritesStore: FavoritesStore
+    let recentlyUsedStore: RecentlyUsedStore
     let windowStateStore: WindowStateStore
     let focusTracker: AppFocusTracker
     let windowManager: WindowManager
@@ -26,11 +26,8 @@ final class AppState: ObservableObject {
     /// Glyphs shown in the grid (filtered by search + category)
     @Published private(set) var filteredGlyphs: [GlyphEntry] = []
 
-    /// Favorites that match the current filter (shown at top).
-    @Published private(set) var filteredFavorites: [GlyphEntry] = []
-
-    /// Codepoints of favorites that are NOT in the current font (shown greyed out).
-    @Published private(set) var unavailableFavoriteCPs: Set<UInt32> = []
+    /// The 20 most-recently used glyphs (shown at top, always visible).
+    @Published private(set) var recentGlyphs: [GlyphEntry] = []
 
     /// Currently selected glyph (single-click or double-click)
     @Published var selectedGlyph: GlyphEntry?
@@ -65,7 +62,7 @@ final class AppState: ObservableObject {
         self.fontService = fontService
         self.svgExporter = SVGExporter()
         self.clipboardService = ClipboardService()
-        self.favoritesStore = FavoritesStore()
+        self.recentlyUsedStore = RecentlyUsedStore()
         self.windowStateStore = WindowStateStore()
         self.focusTracker = AppFocusTracker()
         self.windowManager = WindowManager()
@@ -82,23 +79,16 @@ final class AppState: ObservableObject {
         }
         .store(in: &cancellables)
 
-        // When the font family or style changes, immediately invalidate the glyph
-        // list so favorites render as stubs rather than attempting to render
-        // old glyph characters with the new (not-yet-loaded) font.
-        // The debounced reloadGlyphs() call below will populate the real data.
-        Publishers.Merge(
-            windowStateStore.$selectedFontFamily.dropFirst().map { _ in () },
-            windowStateStore.$selectedStyle.dropFirst().map { _ in () }
-        )
-        .sink { [weak self] in
-            self?.allGlyphs = []
-            self?.applyFilters()
-        }
-        .store(in: &cancellables)
-
-        // Wire favorites changes → re-apply filters
-        favoritesStore.$favorites
-            .sink { [weak self] _ in self?.applyFilters() }
+        // Wire recents changes → update recentGlyphs (convert RecentGlyph → GlyphEntry)
+        recentlyUsedStore.$recents
+            .sink { [weak self] recents in
+                self?.recentGlyphs = recents.map {
+                    GlyphEntry(codepoint: $0.codepoint,
+                               character: $0.character,
+                               germanName: $0.germanName,
+                               category: $0.category)
+                }
+            }
             .store(in: &cancellables)
 
         // Sync isPinned to WindowManager
@@ -122,6 +112,10 @@ final class AppState: ObservableObject {
     }
 
     func insertGlyph(_ glyph: GlyphEntry) {
+        // Record before anything else — both the insert and clipboard-fallback paths
+        // deliver the character to the user, so recording is unconditional.
+        recentlyUsedStore.record(glyph)
+
         selectGlyph(glyph)
 
         // Check permission first
@@ -154,6 +148,7 @@ final class AppState: ObservableObject {
     }
 
     func copyVectorSVG(for glyph: GlyphEntry) {
+        recentlyUsedStore.record(glyph)
         let family = windowStateStore.selectedFontFamily
         let style  = windowStateStore.selectedStyle
         if let svg = svgExporter.vectorSVG(character: glyph.character,
@@ -170,6 +165,7 @@ final class AppState: ObservableObject {
     }
 
     func copyTextSVG(for glyph: GlyphEntry) {
+        recentlyUsedStore.record(glyph)
         let family = windowStateStore.selectedFontFamily
         let style  = windowStateStore.selectedStyle
         let svg = svgExporter.textSVG(character: glyph.character,
@@ -178,16 +174,12 @@ final class AppState: ObservableObject {
         showToast("Text-SVG kopiert")
     }
 
-    func toggleFavorite(_ glyph: GlyphEntry) {
-        favoritesStore.toggle(glyph.codepoint)
-    }
-
-    func clearFavorites() {
-        favoritesStore.clearAll()
+    func clearRecents() {
+        recentlyUsedStore.clearAll()
     }
 
     func navigateGrid(direction: NavigationDirection) {
-        let allVisible = filteredFavorites + filteredGlyphs
+        let allVisible = recentGlyphs + filteredGlyphs
         guard !allVisible.isEmpty else { return }
 
         if let current = selectedGlyph,
@@ -223,36 +215,7 @@ final class AppState: ObservableObject {
     private func applyFilters() {
         let query    = searchQuery.trimmingCharacters(in: .whitespaces).lowercased()
         let category = windowStateStore.selectedCategory
-
-        let filtered = allGlyphs.filter { matches(glyph: $0, query: query, category: category) }
-
-        let favCPs = Set(favoritesStore.favorites)
-        var favGlyphs: [GlyphEntry] = []
-        var unavailableCPs: Set<UInt32> = []
-
-        for cp in favoritesStore.favorites {
-            if let g = allGlyphs.first(where: { $0.codepoint == cp }) {
-                if matches(glyph: g, query: query, category: category) {
-                    favGlyphs.append(g)
-                }
-            } else {
-                let stub = GlyphEntry(
-                    codepoint: cp,
-                    character: Unicode.Scalar(cp).map(String.init) ?? "?",
-                    germanName: nameService.germanName(for: cp),
-                    category: nameService.category(for: cp)
-                )
-                // Unavailable favorites follow the same filter rules as available ones
-                if matches(glyph: stub, query: query, category: category) {
-                    favGlyphs.append(stub)
-                    unavailableCPs.insert(cp)
-                }
-            }
-        }
-
-        filteredFavorites = favGlyphs
-        unavailableFavoriteCPs = unavailableCPs
-        filteredGlyphs = filtered.filter { !favCPs.contains($0.codepoint) }
+        filteredGlyphs = allGlyphs.filter { matches(glyph: $0, query: query, category: category) }
     }
 
     private func matches(glyph: GlyphEntry, query: String, category: GlyphCategory) -> Bool {

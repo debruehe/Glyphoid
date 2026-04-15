@@ -2,13 +2,13 @@
   "fill-specializations" : [
     {
       "value" : {
-        "automatic-gradient" : "display-p3:0.07051,0.96611,0.69933,1.00000"
+        "automatic-gradient" : "display-p3:0.07059,0.96471,0.69804,1.00000"
       }
     },
     {
       "appearance" : "dark",
       "value" : {
-        "automatic-gradient" : "display-p3:0.05241,0.23262,0.17060,1.00000"
+        "automatic-gradient" : "display-p3:0.05098,0.23137,0.17255,1.00000"
       }
     }
   ],
@@ -94,8 +94,53 @@
             }
           ],
           "glass" : true,
+          "hidden" : true,
           "image-name" : "Frame-1.svg",
           "name" : "Frame-1",
+          "opacity" : 0.3
+        },
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "linear-gradient" : [
+                  "display-p3:0.20000,0.20000,0.20000,1.00000",
+                  "display-p3:0.00000,0.00000,0.00000,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.9171218872070312,
+                    "y" : 0.9480438232421875
+                  },
+                  "stop" : {
+                    "x" : 0.10506439208984375,
+                    "y" : 0.04878997802734375
+                  }
+                }
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "linear-gradient" : [
+                  "display-p3:0.20000,0.20000,0.20000,1.00000",
+                  "display-p3:0.93925,0.93673,1.00000,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.9171218872070312,
+                    "y" : 0.9480438232421875
+                  },
+                  "stop" : {
+                    "x" : 0.10506439208984375,
+                    "y" : 0.04878997802734375
+                  }
+                }
+              }
+            }
+          ],
+          "image-name" : "grid.svg",
+          "name" : "grid",
           "opacity" : 0.3
         }
       ],

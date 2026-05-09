@@ -58,7 +58,7 @@ final class FontService {
 
     // MARK: - Private helpers
 
-    private func fontName(family: String, style: String) -> String {
+    func fontName(family: String, style: String) -> String {
         // NSFontManager returns members as [postscript-name, style-name, weight, traits]
         guard let members = NSFontManager.shared.availableMembers(ofFontFamily: family)
         else { return family }

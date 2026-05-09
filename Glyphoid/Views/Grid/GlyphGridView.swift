@@ -5,7 +5,10 @@ struct GlyphGridView: View {
 
     var body: some View {
         let cellSize   = state.windowStateStore.cellSize
-        let fontFamily = state.windowStateStore.selectedFontFamily
+        let fontFamily = state.fontService.fontName(
+            family: state.windowStateStore.selectedFontFamily,
+            style: state.windowStateStore.selectedStyle
+        )
         let columns    = [GridItem(.adaptive(minimum: cellSize, maximum: cellSize), spacing: 4)]
 
         ScrollViewReader { proxy in
